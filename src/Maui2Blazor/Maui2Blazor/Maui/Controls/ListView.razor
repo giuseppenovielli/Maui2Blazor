@@ -1,0 +1,48 @@
+﻿@inherits ItemsView
+
+<div class="listview-container" style="@Style @GetCombinedStyle()" @onscroll="HandleScrollAsync">
+    @* Header *@
+    @if (Header != null)
+    {
+        <div class="listview-header">
+            @Header
+        </div>
+    }
+
+    @* Se la lista è vuota, mostra l'EmptyView *@
+    @if (IsEmpty && EmptyView != null)
+    {
+        <div class="listview-empty">
+            @EmptyView
+        </div>
+    }
+    else if (ItemsSource != null)
+    {
+        <div class="listview-items" style="@GetItemContainerStyle()">
+            @foreach (var item in ItemsSource.Cast<object>())
+            {
+                <ViewCell>
+                    <div class="listview-item" @onclick="() => HandleSelectionAsync(item)">
+                        @GetItemTemplate(item)?.Invoke(item)
+                    </div>
+                </ViewCell>
+                @if (SeparatorVisibility == SeparatorVisibility.Default)
+                {
+                    <div class="listview-separator" style="background-color: @SeparatorColor;"></div>
+                }
+            }
+        </div>
+    }
+
+    @* Footer *@
+    @if (Footer != null)
+    {
+        <div class="listview-footer">
+            @Footer
+        </div>
+    }
+</div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

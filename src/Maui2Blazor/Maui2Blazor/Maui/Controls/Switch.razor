@@ -1,0 +1,15 @@
+﻿@inherits View
+
+<div class="switch-container">
+    <label class="switch">
+        <input type="checkbox"
+               class="switch-input"
+               @bind="IsToggled">
+        <span class="switch-slider" style="background-color:@GetBackgroundColor()"></span>
+    </label>
+</div>
+
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

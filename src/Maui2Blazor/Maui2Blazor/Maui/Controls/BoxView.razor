@@ -1,0 +1,7 @@
+﻿@inherits View
+
+<div @onclick="HandleClick" class="boxview" style="@Style @GetCombinedStyle()"></div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

@@ -1,0 +1,16 @@
+﻿@inherits View
+
+<div class="slider-container">
+    <input type="range"
+           class="slider-input"
+           min="@Minimum"
+           max="@Maximum"
+           step="@Step"
+           @bind="Value"
+           @oninput="HandleValueChanged" />
+    <span class="slider-value">@Value</span>
+</div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

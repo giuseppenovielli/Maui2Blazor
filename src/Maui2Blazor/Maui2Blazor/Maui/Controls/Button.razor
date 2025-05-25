@@ -1,0 +1,9 @@
+﻿@inherits View
+
+<button style="@Style @GetCombinedStyle()" disabled="@(!IsEnabled)" @onclick="OnClickHandler">
+    @Text
+</button>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <!--<Nullable>true</Nullable>-->
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Maui\Prism\Navigation\NavigationService %28Blazor%29.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Maui\Views\" />
+    <None Remove="Maui\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Maui\Views\" />
+    <Folder Include="Maui\Models\" />
+  </ItemGroup>
+</Project>

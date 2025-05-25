@@ -1,0 +1,19 @@
+﻿.carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-items {
+    display: flex;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 80%; /* Personalizzabile */
+    margin-right: 10px;
+}

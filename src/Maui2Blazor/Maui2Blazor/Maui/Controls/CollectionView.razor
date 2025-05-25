@@ -1,0 +1,78 @@
+﻿@inherits ItemsView
+
+<div class="collection-container" style="@Style @GetCombinedStyle()" @onscroll="HandleScrollAsync">
+    @* Header: se è definito HeaderComponent, lo usa; altrimenti usa Header *@
+    @if (HeaderComponent != null)
+    {
+        <div class="collection-header">
+            @HeaderComponent
+        </div>
+    }
+    else if (Header != null)
+    {
+        <div class="collection-header">
+            @Header
+        </div>
+    }
+
+    @* Se ItemsSource è vuoto e c'è un EmptyView, lo mostra *@
+    @if (IsEmpty && EmptyView != null)
+    {
+        <div class="empty-view">
+            @EmptyView
+        </div>
+    }
+    else if (ItemsSource != null)
+    {
+        <div style="@Style @GetCombinedStyle()">
+            @if (IsGrouped)
+            {
+                @foreach (var group in ItemsSource.Cast<object>().GroupBy(item => item))
+                {
+                    <div class="group-header">
+                        @GroupHeaderTemplate?.Invoke(group.Key)
+                    </div>
+                    @foreach (var item in group)
+                    {
+                        <div @onclick="() => HandleSelectionAsync(item)"
+                             class="collection-item @(SelectedItem == item || SelectedItems.Contains(item) ? "selected" : "")">
+                            @GetItemTemplate(item)?.Invoke(item)
+                        </div>
+                    }
+                    <div class="group-footer">
+                        @GroupFooterTemplate?.Invoke(group.Key)
+                    </div>
+                }
+            }
+            else
+            {
+                @foreach (var item in ItemsSource.Cast<object>())
+                {
+                    <div @onclick="() => HandleSelectionAsync(item)"
+                         class="collection-item @(SelectedItem == item || SelectedItems.Contains(item) ? "selected" : "")">
+                        @GetItemTemplate(item)?.Invoke(item)
+                    </div>
+                }
+            }
+        </div>
+    }
+
+    @* Footer: usa FooterComponent se definito, altrimenti Footer *@
+    @if (FooterComponent != null)
+    {
+        <div class="collection-footer">
+            @FooterComponent
+        </div>
+    }
+    else if (Footer != null)
+    {
+        <div class="collection-footer">
+            @Footer
+        </div>
+    }
+</div>
+
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

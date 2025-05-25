@@ -1,0 +1,15 @@
+﻿@inherits View
+
+<div class="timepicker-container">
+    <input type="time"
+           class="timepicker-input"
+           value="@Value.ToString(@"hh\:mm")"
+           min="@MinimumTime.ToString(@"hh\:mm")"
+           max="@MaximumTime.ToString(@"hh\:mm")"
+           @onchange="HandleTimeChange" />
+</div>
+
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

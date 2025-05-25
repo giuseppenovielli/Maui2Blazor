@@ -1,0 +1,14 @@
+﻿@inherits View
+
+<div class="webview-container">
+    <iframe @ref="iframeElement"
+            src="@Source"
+            class="webview-frame"
+            @onload="HandleNavigated">
+    </iframe>
+</div>
+
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

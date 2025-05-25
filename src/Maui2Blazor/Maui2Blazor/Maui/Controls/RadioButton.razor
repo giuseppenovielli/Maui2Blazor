@@ -1,0 +1,16 @@
+﻿@inherits TemplatedView
+
+<div class="radiobutton-container">
+    <label>
+        <input type="radio"
+               class="radiobutton-input"
+               name="@GroupName"
+               @bind="IsChecked" />
+        <span class="radiobutton-label">@Text</span>
+    </label>
+</div>
+
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

@@ -1,0 +1,9 @@
+﻿@inherits StackBase
+
+<div style="@Style @GetCombinedStyle()" @onclick="OnClickHandler">
+    @ChildContent
+    @foreach (var child in Children)
+    {
+        @RenderChild(child)
+    }
+</div>

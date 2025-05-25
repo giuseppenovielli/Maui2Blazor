@@ -1,0 +1,47 @@
+﻿@inherits Page
+
+<CascadingValue Value="this">
+    <div class="navigation-bar" style="background-color:@BarBackgroundColor; color:@BarTextColor">
+        <!-- Sezione sinistra: Back Button o area vuota -->
+        <div class="nav-left">
+            @if (HasBackButton && _navigationStack.Count > 2)
+                {
+                <button class="back-button" @onclick="PopBackPage">⬅️</button>
+                }
+        </div>
+        <!-- Sezione centrale: Titolo -->
+        <div class="nav-center">
+            <span>@CurrentPageTitle</span>
+        </div>
+        <!-- Sezione destra: eventualmente altri elementi o vuota -->
+        <div class="nav-right">
+            <!-- Lasciata vuota per mantenere il titolo centrato -->
+        </div>
+    </div>
+
+
+    @*<div class="content-page">
+            @CurrentPage
+        </div>*@
+
+    @{
+
+        var i = 0;
+        @*foreach (var item in _navigationContentPageStack)
+        {
+            <p>@item</p>
+        }*@
+    }
+    @{
+        int currentIndex = _navigationStack.Count - 1;
+        i = 0;
+        foreach (var pageRenderFragment in _navigationStack.Reverse())
+        {
+            <div style="display:@(i == currentIndex ? "block" : "none")">
+                @pageRenderFragment
+            </div>
+            i++;
+        }
+    }
+
+</CascadingValue>

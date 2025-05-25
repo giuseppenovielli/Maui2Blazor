@@ -1,0 +1,20 @@
+﻿@inherits InputView
+
+<textarea @bind="Text"
+          placeholder="@Placeholder"
+          style="@Style @GetCombinedStyle()"
+          maxlength="@MaxLength"
+          @oninput="HandleTextChanged"
+          @onkeypress="HandleKeyPress"
+          @onfocus="HandleFocus"
+          @onblur="HandleBlur"
+          disabled="@(!IsEnabled || IsReadOnly)"/>
+
+@*<textarea
+          @bind:event="oninput"
+</textarea>*@
+
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

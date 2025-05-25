@@ -1,0 +1,9 @@
+﻿@inherits View
+
+<input type="checkbox"
+       @bind="IsChecked"
+       style="@Style @GetCombinedStyle()" />
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

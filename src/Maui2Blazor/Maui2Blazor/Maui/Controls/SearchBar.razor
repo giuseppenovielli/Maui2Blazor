@@ -1,0 +1,15 @@
+﻿@inherits InputView
+
+<div class="searchbar-container">
+    <input type="text"
+           class="searchbar-input"
+           placeholder="@Placeholder"
+           @bind="Text"
+           @oninput="HandleTextChanged"
+           @onkeydown="HandleKeyDown" />
+    <button class="searchbar-button" @onclick="TriggerSearch">🔍</button>
+</div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

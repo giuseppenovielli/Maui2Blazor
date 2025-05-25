@@ -1,0 +1,19 @@
+﻿@inherits ItemsView
+
+<div id="@ElementId" class="carousel-container" style="@Style @GetCombinedStyle()" @onscroll="HandleScroll">
+    <div class="carousel-items" style="display: flex; flex-direction: @(Orientation == ItemsLayout.Horizontal ? "row" : "column");">
+        @if (ItemsSource != null)
+        {
+            @foreach (var item in ItemsSource.Cast<object>().Select((value, index) => new { value, index }))
+            {
+                <div class="carousel-item @(Position == item.index ? "active" : "")">
+                    @GetItemTemplate(item.value)?.Invoke(item.value)
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

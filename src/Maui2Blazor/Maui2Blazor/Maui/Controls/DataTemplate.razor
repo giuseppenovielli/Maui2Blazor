@@ -1,0 +1,10 @@
+﻿@typeparam TItem
+
+@code {
+    [Parameter] public RenderFragment<TItem> Content { get; set; }
+
+    public DataTemplate ToDataTemplate()
+    {
+        return new DataTemplate(context => Content((TItem)context));
+    }
+}

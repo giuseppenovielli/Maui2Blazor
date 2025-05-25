@@ -1,0 +1,16 @@
+﻿.radiobutton-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0;
+}
+
+.radiobutton-input {
+    accent-color: #007bff;
+}
+
+.radiobutton-label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}

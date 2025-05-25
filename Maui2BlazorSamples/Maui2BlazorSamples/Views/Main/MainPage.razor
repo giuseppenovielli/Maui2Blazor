@@ -1,0 +1,21 @@
+﻿@inherits ContentPageBase
+
+@{var bc = BindingContext as MainPageViewModel;}
+
+<ScrollView>
+    <StackLayout Spacing="10"
+                 Margin="@Thickness.GetUniformCss(10)">
+
+        <Button
+            Command="@bc.HelloWorldClickCommand"
+            CommandParameter="@bc"
+            Text="Hello World" />
+
+        <Button
+            Command="@bc.CollectioViewClickCommand"
+            CommandParameter="@bc"
+            Text="CollectionView" />
+
+    </StackLayout>
+
+</ScrollView>

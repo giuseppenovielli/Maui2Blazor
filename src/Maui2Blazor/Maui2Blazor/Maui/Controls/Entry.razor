@@ -1,0 +1,14 @@
+﻿@inherits InputView
+
+<input @bind="Text"
+       type="@InputType"
+       placeholder="@Placeholder"
+       maxlength="@MaxLength"
+       style="@Style @GetCombinedStyle()"
+       @oninput="HandleTextChanged"
+       @onkeypress="HandleKeyPress"
+       disabled="@(!IsEnabled || IsReadOnly)" />
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

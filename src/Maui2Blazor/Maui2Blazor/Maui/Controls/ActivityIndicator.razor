@@ -1,0 +1,14 @@
+﻿@inherits View
+
+@if (IsVisible)
+{
+    <div class="activity-indicator-container">
+        <div class="spinner-border" role="status" style="@Style @GetCombinedStyle()">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

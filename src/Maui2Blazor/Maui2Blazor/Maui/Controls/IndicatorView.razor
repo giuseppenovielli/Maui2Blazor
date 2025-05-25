@@ -1,0 +1,22 @@
+﻿@inherits TemplatedView
+
+<div class="indicator-view">
+    @if (ControlTemplate != null)
+    {
+        @ControlTemplate
+    }
+    else
+    {
+        @for (int i = 0; i < Count; i++)
+        {
+            <span class="indicator-dot"
+                  style="background-color: @(i == Position ? SelectedIndicatorColor : IndicatorColor); width: @IndicatorSize; height: @IndicatorSize;"
+                  @onclick="() => ChangePosition(i)">
+            </span>
+        }
+    }
+</div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

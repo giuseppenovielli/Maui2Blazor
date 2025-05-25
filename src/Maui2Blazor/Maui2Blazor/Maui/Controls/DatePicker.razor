@@ -1,0 +1,15 @@
+﻿@inherits View
+
+<div class="datepicker-container">
+    <input type="date"
+           class="datepicker-input"
+           @bind="Value"
+           @bind:event="oninput"
+           min="@MinimumDate.ToString("yyyy-MM-dd")"
+           max="@MaximumDate.ToString("yyyy-MM-dd")"
+           @onchange="HandleDateChange" />
+</div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

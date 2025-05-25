@@ -1,0 +1,11 @@
+﻿@inherits View
+
+<img src="@Source"
+     style="@Style @GetCombinedStyle()"
+     @onload="HandleLoaded"
+     @onerror="HandleError"
+     @onclick="OnClickHandler">
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

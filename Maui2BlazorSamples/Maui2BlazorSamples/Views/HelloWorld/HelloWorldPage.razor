@@ -1,0 +1,19 @@
+﻿@inherits ContentPageBase
+
+
+<ScrollView>
+    <StackLayout Spacing="10"
+                 Margin="@Thickness.GetUniformCss(10)">
+
+        <Label
+               HorizontalTextAlignment="TextAlignment.Center"
+               Text="@Count.ToString()"
+               FontSize="50"
+               />
+
+        <Button OnClick="IncreseCount"
+                Text="Increase counter" />
+
+    </StackLayout>
+
+</ScrollView>

@@ -1,0 +1,39 @@
+﻿@inherits ContentPageBase
+
+@{var bc = BindingContext as CollectionViewPageViewModel;}
+
+<Grid
+      Margin="@Thickness.GetUniformCss(10)"
+      RowSpacing="10"
+      RowDefinitions="Auto, *">
+
+    <GridItem>
+
+        <Button Text="Reload data"
+                CommandParameter="@bc"
+                Command="@bc.ReloadClickCommand" />
+    </GridItem>
+    
+
+    <GridItem
+              GridRow="1">
+        <CollectionView
+                ItemsSource="@bc.ItemsList">
+
+            <EmptyView>
+                <Label
+                       HorizontalTextAlignment="TextAlignment.Center"
+                       VerticalOptions="LayoutOptions.Center"
+                       FontSize="20"
+                       Text="Loading..."/>
+            </EmptyView>
+
+            <ItemTemplate>
+                <CollectionViewItemView BindingContext="@context" />
+            </ItemTemplate>
+
+        </CollectionView>
+
+    </GridItem>
+    
+</Grid>

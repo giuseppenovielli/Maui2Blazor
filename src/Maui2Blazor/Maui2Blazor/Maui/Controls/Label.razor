@@ -1,0 +1,9 @@
+﻿@inherits View
+
+<span style="@Style @GetCombinedStyle()" @onclick="OnClickHandler">
+    @Text
+</span>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

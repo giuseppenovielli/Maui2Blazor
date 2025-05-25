@@ -1,0 +1,29 @@
+﻿@inherits ContentView
+
+@{var bc = BindingContext as PostItem;}
+
+
+<StackLayout
+             Spacing="10"
+        Margin="@Thickness.GetUniformCss(10)"
+        HorizontalOptions="LayoutOptions.Center">
+
+    <Label
+        FontSize="20"
+        HorizontalOptions="LayoutOptions.Center"
+        Text="@bc.Title"/>
+
+    <Image
+           HorizontalOptions="LayoutOptions.Center"
+           WidthRequest="300"
+           HeightRequest="200"
+           Source="@bc.ImageURL"/>
+
+    <BoxView
+             HeightRequest="1"
+             BackgroundColor="@Color.Gray.CssColor"
+             />
+
+</StackLayout>
+
+

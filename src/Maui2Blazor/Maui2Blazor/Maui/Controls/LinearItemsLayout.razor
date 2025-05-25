@@ -1,0 +1,8 @@
+﻿@inherits ItemsView
+<style>
+    .collection-container {
+        display: flex;
+        flex-direction: @(Orientation == ItemsLayout.Horizontal ? "row" : "column");
+        overflow-x: auto;
+    }
+</style>

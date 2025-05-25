@@ -1,0 +1,12 @@
+﻿@inherits ItemsView
+@code {
+    [Parameter] public int Span { get; set; } = 2; // Default: 2 colonne
+}
+
+<style>
+    .collection-container {
+        display: grid;
+        grid-template-columns: repeat(@Span, 1fr);
+        gap: 10px;
+    }
+</style>

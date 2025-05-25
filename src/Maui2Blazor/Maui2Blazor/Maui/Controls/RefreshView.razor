@@ -1,0 +1,16 @@
+﻿@inherits ContentView
+
+<div class="refresh-container" @onpointerdown="StartDrag" @onpointerup="EndDrag">
+    @if (IsRefreshing)
+    {
+        <div class="refresh-spinner">
+            <p>🔄 Aggiornamento in corso...</p>
+        </div>
+    }
+
+    <div class="refresh-content">
+        <CascadingValue Value="this">
+            @ChildContent
+        </CascadingValue>
+    </div>
+</div>

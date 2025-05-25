@@ -1,0 +1,15 @@
+﻿@inherits TemplatedPage
+
+@*<NavigationPage HasNavigationBar="@HasNavigationBar" BarBackgroundColor="@BarBackgroundColor" BarTextColor="@BarTextColor">
+        <CascadingValue Value="this">
+            <div class="content-container">
+                @ChildContent
+            </div>
+        </CascadingValue>
+    </NavigationPage>*@
+
+
+<!-- Qui puoi definire il layout specifico della ContentPage -->
+<div class="content-page" style="@Style @GetCombinedStyle()">
+    @ChildContent
+</div>

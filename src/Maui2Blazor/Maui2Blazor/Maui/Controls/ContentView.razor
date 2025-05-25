@@ -1,0 +1,9 @@
+﻿@inherits TemplatedView
+
+<div style="@Style @GetCombinedStyle()" @onclick="OnClickHandler">
+    @Content
+</div>
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>

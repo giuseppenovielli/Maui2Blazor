@@ -1,0 +1,39 @@
+﻿:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Stile per il pulsante di back */
+.back-button {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: inherit;
+}
+
+
+/* Le sezioni laterali hanno larghezza fissa per mantenere l'equilibrio */
+.nav-left,
+.nav-right {
+    flex: 0 0 50px; /* Imposta una larghezza fissa (modifica se necessario) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-center {
+    flex: 1;
+    text-align: center;
+}

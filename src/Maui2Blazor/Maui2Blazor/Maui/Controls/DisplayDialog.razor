@@ -1,0 +1,56 @@
+﻿@inject IDisplayDialogService Service
+
+@if (_showAlert)
+{
+    <div class="modal fade show d-block">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@_alertTitle</h5>
+                </div>
+                <div class="modal-body">
+                    <p>@_alertMessage</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" @onclick="AcceptAlert">@_alertAccept</button>
+                    @if (!string.IsNullOrEmpty(_alertCancel))
+                    {
+                        <button class="btn btn-secondary" @onclick="CancelAlert">@_alertCancel</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@if (_showActionSheet)
+{
+    <div class="modal fade show d-block">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@_actionSheetTitle</h5>
+                </div>
+                <div class="modal-body action-sheet-container">
+                    @foreach (var btn in _actionSheetButtons)
+                    {
+                        <button class="btn btn-primary action-sheet-button" @onclick="(() => SelectActionSheetOption(btn))">@btn</button>
+                    }
+                    @if (!string.IsNullOrEmpty(_actionSheetDestruction))
+                    {
+                        <button class="btn btn-danger action-sheet-button" @onclick="(() => SelectActionSheetOption(_actionSheetDestruction))">@_actionSheetDestruction</button>
+                    }
+                </div>
+                <div class="modal-footer">
+                    @if (!string.IsNullOrEmpty(_actionSheetCancel))
+                    {
+                        <button class="btn btn-secondary action-sheet-button" @onclick="(() => SelectActionSheetOption(_actionSheetCancel))">@_actionSheetCancel</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+

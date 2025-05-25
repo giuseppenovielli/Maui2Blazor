@@ -1,0 +1,15 @@
+﻿@inherits ContentPage
+
+@*@if (IsPopupOpen)
+{
+    <div class="modal fade show d-block" tabindex="-1" role="dialog" @onclick="@OnBackgroundClicked">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" @onclick:stopPropagation="true" style="@Style @GetCombinedStyle()">
+                <div class="modal-body">
+                    @ChildContent
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}*@
