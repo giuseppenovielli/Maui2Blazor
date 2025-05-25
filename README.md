@@ -80,7 +80,7 @@ CONS
 </ScrollView>
 ```
 
-## .NET MAUI API Available
+## .NET MAUI API Available (Partial or Not Tested)
 - ContentPage
 - ContentView
 - StackLayout
@@ -111,6 +111,10 @@ CONS
 
 ## Mopups
 - PopupService
+
+- ## .NET MAUI API NOT Available at the moment
+- TabbedPage
+- Flyout Page
 
 ## How to use
 1. Clone this repository
