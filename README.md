@@ -121,7 +121,8 @@ Mopups
 2. Run Maui2BlazorSamples
 
 ## Disclaimer
-This is at the moment an experiment. Use at your own risk.
+This is at the moment an experiment. Use at your own risk. 
+
 Is not raccomanded to use into a production evironment.
 
 ## Copyright and license
