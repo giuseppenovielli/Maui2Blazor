@@ -106,13 +106,13 @@ CONS
 - Display Alert
 - MVVM Converter
 
-## Prism
+Prism
 - NavigationService
 
-## Mopups
+Mopups
 - PopupService
 
-- ## .NET MAUI API NOT Available at the moment
+## .NET MAUI API NOT Available at the moment
 - TabbedPage
 - Flyout Page
 
